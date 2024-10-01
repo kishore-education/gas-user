@@ -144,7 +144,7 @@ def signin_page():
         if user:
             st.session_state.user = user
             st.session_state.page = "Products"
-            st.experimental_rerun()
+            st.experimental_set_query_params(page="Products")
         else:
             st.error("Invalid username or password")
 
@@ -158,7 +158,7 @@ def signup_page():
         signup(username, password)
         st.success("Signup successful! Please sign in.")
         st.session_state.page = "Sign In"
-        st.experimental_rerun()
+        st.experimental_set_query_params(page="Sign In")
 
 def products_page():
     st.header("Products")
